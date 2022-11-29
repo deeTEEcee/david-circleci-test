@@ -33,7 +33,7 @@ workflows:
             branches:
               only: /.*/
             tags:
-              only: /./
+              only: /.*/
       - publish-documentation:
           requires:
             - build-and-test
