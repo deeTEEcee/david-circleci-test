@@ -32,6 +32,12 @@ workflows:
       - publish-documentation:
           requires:
             - build-and-test
+          filters:
+            branches:
+              ignore:
+                - /.*/
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
       - other-job:
           requires:
             - build-and-test
