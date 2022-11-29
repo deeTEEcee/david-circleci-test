@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  python: circleci/python@1.2
 jobs:
   build-and-test: # This is the name of the job, feel free to change it to better match what you're trying to do!
     docker:
@@ -11,11 +9,15 @@ jobs:
           name: Check python verison
           command: python --version
   publish-documentation:
+    docker:
+      - image: cimg/python:3.8
     steps:
       - run:
           name: Publish documentation
           command: echo "publish documentation"
   other-job:
+    docker:
+      - image: cimg/python:3.8
     steps:
       - run:
           name: Do something
