@@ -29,13 +29,17 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /./
       - publish-documentation:
           requires:
             - build-and-test
           filters:
             branches:
-              ignore:
-                - /.*/
+              ignore: /.*/
             tags:
               only: /^v\d+\.\d+\.\d+$/
       - other-job:
